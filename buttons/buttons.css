@@ -1,0 +1,120 @@
+/* Base Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: #2d2d2d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    padding: 1em 3em;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+/* Button 1 */
+
+.btn1 {
+    color: #f2f2f2;
+    background-color: #785dc4;
+    border: none;
+    position: relative;
+}
+
+.btn1::before,
+.btn1::after {
+    content: '';
+    position: absolute;
+    width: 1em;
+    height: 1em;
+    transition: all 0.5s;
+}
+
+.btn1::before {
+    top: -8px;
+    left: -8px;
+    border-top: 3px solid #785dc4;
+    border-left: 3px solid #785dc4;
+}
+
+.btn1::after {
+    right: -8px;
+    bottom: -8px;
+    border-bottom: 3px solid #785dc4;
+    border-right: 3px solid #785dc4;
+}
+
+.btn1:hover::before {
+    animation: move-top 0.5s normal 1 forwards;
+}
+
+.btn1:hover::after {
+    animation: move-bottom 0.5s normal 1 forwards;
+}
+
+@keyframes move-top {
+    15% {
+        width: 1em;
+        height: 0%;
+        left: 0;
+        border-left: 3px solid #785dc4;
+    }
+    60% {
+        width: 100%;
+        border-left: none;
+        left: 0;
+        height: 0%;
+    }
+    85% {
+        width: 1em;
+        border-left: none;
+        height: 0%;
+        left: calc(100% - 1em + 8px);
+    }
+    100% {
+        width: 1em;
+        left: calc(100% - 1em + 8px);
+        border-left: none;
+        border-right: 3px solid #785dc4;
+    }
+}
+
+@keyframes move-bottom {
+    15% {
+        width: 1em;
+        height: 0%;
+        right: -8px;
+        border-right: 3px solid #785dc4;
+    }
+    60% {
+        width: 100%;
+        border-right: none;
+        right: 0;
+        height: 0%;
+    }
+    85% {
+        width: 1em;
+        border-right: none;
+        height: 0%;
+        right: calc(100% - 1em + 8px);
+    }
+    100% {
+        width: 1em;
+        right: calc(100% - 1em + 8px);
+        border-right: none;
+        border-left: 3px solid #785dc4;
+    }
+}
